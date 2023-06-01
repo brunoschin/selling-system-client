@@ -7,3 +7,14 @@ type Product = {
     quantity: number;
     image?: string;
 }
+
+type Cart = {
+    product: Product;
+    quantity: number;
+}
+
+type Client = {
+    id?: string;
+    name?: string;
+    email?: string;
+}

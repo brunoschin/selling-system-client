@@ -3,11 +3,11 @@
     margin: auto;
 }
 
-.Showroom-container {
+.Showroom .Showroom-container {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
-    margin: auto;
+    margin: 0 auto 2rem auto;
 }

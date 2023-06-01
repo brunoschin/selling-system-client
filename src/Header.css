@@ -1,0 +1,110 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10rem;
+    background-color: #7c4700;
+    margin-bottom: 2rem;
+    height: 7rem;
+    gap: 2rem;
+}
+
+.Header h1 {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    color: white;
+}
+
+.Header .Cart-button,
+.Header .User-button {
+    position: relative;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    border-radius: 100%;
+    padding: 2px 2px 0 0;
+    transition: all .1s ease-in-out;
+}
+
+.Header .User-button {
+    padding: 2px 0 0 1px;
+}
+
+.Header .Cart-button:hover,
+.Header .Cart-button:active,
+.Header .Cart-button::selection,
+.Header .User-button:hover,
+.Header .User-button:active,
+.Header .User-button::selection {
+    background-color: #bd6b00;
+    cursor: pointer;
+}
+
+.Header .Cart-button img,
+.Header .User-button img {
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+}
+
+.Header .Cart-button .Cart-counter {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    height: 15px;
+    transition: all .1s ease-in-out;
+    border-radius: 50%;
+}
+
+.Header .Cart-button:hover .Cart-counter {
+    background-color: #bd6b00;
+}
+
+.Header .Search {
+    display: flex;
+    height: 3rem;
+    width: 30rem;
+    min-width: 11rem;
+}
+
+.Header .Search input {
+    height: 3rem;
+    width: 90%;
+    outline: none;
+    border: none;
+    padding: 0 0.5rem 0 0.5rem;
+    border-radius: 5px;
+    font: 1.2rem sans-serif;
+}
+
+.Header .Search button {
+    border: none;
+    outline: none;
+    height: 3rem;
+    width: 3rem;
+    padding-top: 3px;
+    margin-left: -3rem;
+    border-radius: 0 5px 5px 0;
+    background-color: transparent;
+    padding: 2px 2px 0 0;
+}
+
+
+.Header .Search button img {
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+}
+
+.Header .User-space{
+    display: flex;
+    gap: 2rem;
+}
