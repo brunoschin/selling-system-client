@@ -1,23 +1,25 @@
 import './Header.css'
 
-function Header({ search, setSearch, cartLen, setCartState }: { search: string, setSearch: (search: string) => void, cartLen: number, setCartState: React.Dispatch<boolean> }) {
+function Header({ search, setSearch, cartLen }: { search: string, setSearch: (search: string) => void, cartLen: number }) {
     return (
         <header className='Header'>
-            <h1>Schin CoffeShop</h1>
+            <h1 onClick={() => document.location.pathname = '/'}>Schin CoffeShop</h1>
             <div className='Search'>
                 <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Pesquisar" />
                 <button><img src="./magnifier.png" alt="Search" /></button>
             </div>
             <div className='User-space'>
-                <button className='Cart-button' onClick={() => setCartState(cartLen > 0 ? true : false)}>
+                <button className='Cart-button' onClick={() => {
+                    if (document.location.pathname === '/cart')
+                        document.location.pathname = '/';
+                    else
+                        document.location.pathname = '/cart';
+                }}>
                     <img src="./shopping-cart.png" alt="Shopping cart" />
                     <span className='Cart-counter'>{cartLen || 0}</span>
                 </button>
-                <button className='User-button'>
-                    <img src="./user.png" alt="User" />
-                </button>
             </div>
-        </header>
+        </header >
     )
 }
 

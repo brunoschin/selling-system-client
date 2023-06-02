@@ -7,16 +7,26 @@ import CartTSX from './Cart';
 function App() {
   const [Search, setSearch] = useState<string>('');
   const [Cart, setCart] = useState<Cart[]>([]);
-  const [User, setUser] = useState<any>({});
+  const [User, setUser] = useState<string>();
   const [react, setReact] = useState<any>({});
-  const [CartOpen, setCartOpen] = useState<boolean>(false);
   useEffect(() => {
     const user = localStorage.getItem('user');
     const cart = localStorage.getItem('cart');
     if (user) {
-      setUser(JSON.parse(user));
-      console.log(user)
-      console.log(User)
+      const json = JSON.parse(user);
+      setUser(json);
+      fetch(`http://localhost:3001/api/client/${json}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => {
+        if (res.status !== 200) {
+          getClient()
+        }
+      })
+    } else {
+      getClient()
     }
     if (cart) {
       setCart(JSON.parse(cart));
@@ -28,12 +38,27 @@ function App() {
       setCart(JSON.parse(cart));
     }
   }, [react])
+  const { pathname } = document.location;
 
+  function getClient() {
+    fetch('http://localhost:3001/api/client', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }).then(res => res.json().then(({ id }) => {
+      setUser(id);
+      localStorage.setItem('user', JSON.stringify(id));
+    }))
+  }
   return (
     <div className="App">
-      <Header search={Search} setSearch={setSearch} cartLen={Cart.length} setCartState={setCartOpen} />
-      {CartOpen && <CartTSX cart={Cart} setCart={setCart} setCartState={setCartOpen} setReact={setReact} user={User} />}
-      <Showroom search={Search} setReact={setReact} />
+      <Header search={Search} setSearch={setSearch} cartLen={Cart.length} />
+      {pathname !== '/cart' ?
+        <Showroom search={Search} setReact={setReact} />
+        :
+        <CartTSX cart={Cart} setCart={setCart} setReact={setReact} user={User} />
+      }
     </div>
   );
 }

@@ -12,6 +12,7 @@
 .Header h1 {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     color: white;
+    cursor: pointer;
 }
 
 .Header .Cart-button,
@@ -53,7 +54,7 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    background-color: #fff;
+    background-color: #eee;
     display: flex;
     justify-content: center;
     align-items: center;
