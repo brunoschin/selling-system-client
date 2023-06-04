@@ -45,12 +45,13 @@
 .Product .Product-footer {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin-bottom: 0.5rem;
 }
 
 .Product .Product-footer p {
     margin: 0;
+    margin-left: 2rem;
     font-size: 0.9rem;
 }
 

@@ -9,7 +9,6 @@ function Product({ product, setReact }: { product: Product, setReact: React.Disp
                 <p>R$ {product.price.toFixed(2).replace('.', ',')}</p>
                 <div className="Product-footer">
                     <p>ID: {product.id}</p>
-                    <p>Quantidade: {product.quantity}</p>
                 </div>
             </div>
             <button onClick={() => {

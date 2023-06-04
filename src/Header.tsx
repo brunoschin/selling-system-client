@@ -18,6 +18,14 @@ function Header({ search, setSearch, cartLen }: { search: string, setSearch: (se
                     <img src="./shopping-cart.png" alt="Shopping cart" />
                     <span className='Cart-counter'>{cartLen || 0}</span>
                 </button>
+                <button className='Cart-button' onClick={() => {
+                    if (document.location.pathname === '/history')
+                        document.location.pathname = '/';
+                    else
+                        document.location.pathname = '/history';
+                }}>
+                    <img src="./history.png" alt="History" />
+                </button>
             </div>
         </header >
     )

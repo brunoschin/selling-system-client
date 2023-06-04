@@ -1,0 +1,55 @@
+.History {
+    width: 70%;
+    background: #eee;
+    border-radius: 10px;
+    padding-bottom: 2rem;
+    margin: 0 auto;
+}
+
+.History h2 {
+    text-align: center;
+    padding: 0;
+    margin: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+}
+
+.History-orders {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 20rem;
+    height: 15rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
+}
+
+.Order * {
+    padding: 0;
+    margin: 0;
+}
+
+.Order-imgs {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.Order-imgs img {
+    width: 33.33%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+}

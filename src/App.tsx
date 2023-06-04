@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Header from './Header';
 import Showroom from './Showroom';
 import CartTSX from './Cart';
+import History from './History';
 
 function App() {
   const [Search, setSearch] = useState<string>('');
@@ -54,11 +55,16 @@ function App() {
   return (
     <div className="App">
       <Header search={Search} setSearch={setSearch} cartLen={Cart.length} />
-      {pathname !== '/cart' ?
-        <Showroom search={Search} setReact={setReact} />
-        :
-        <CartTSX cart={Cart} setCart={setCart} setReact={setReact} user={User} />
-      }
+      {(() => {
+        switch (pathname) {
+          case '/history':
+            return <History user={User} setReact={setReact} />
+          case '/cart':
+            return <CartTSX cart={Cart} setCart={setCart} setReact={setReact} user={User} />
+          default:
+            return <Showroom search={Search} setReact={setReact} />
+        }
+      })()}
     </div>
   );
 }
